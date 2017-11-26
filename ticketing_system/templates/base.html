@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="description" content="Byrd ticket system challenge">
+  <meta name="author" content="Marisela Del valle">
+  {% block title %}
+  <title>Byrd Ticketing System</title>
+  {% endblock title %}
+  <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  {% block css_links %}
+  {% endblock css_links %}
+</head>
+<body>
+<!-- MAVBAR -->
+<nav class="navbar navbar-light bg-faded">
+  <h1 class="navbar-brand mb-0">byrd tickets</h1>
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle byrd_staff" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    byrd staff?
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Login</a>
+    <a class="dropdown-item" href="#">Register</a>
+  </div>
+</div>
+</nav>
+<!-- END NAVBAR -->
+{% block content %}
+{% endblock content %}
+</body>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer-legal" style="text-align: center; float: none;">
+      © 2017 Byrd Ticketing System by Byrd. All Rights Reserved.
+      <br>
+    </div>
+    <div class="site-footer-right">
+
+    </div>
+  </footer>
+  <!-- Core  -->
+  <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/popper.min.js"></script>
+  <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+
+  {% block js_links %}
+  {% endblock js_links %}
+{% block close_body %}
+</body>
+{% endblock close_body %}
+</html>
