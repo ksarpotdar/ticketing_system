@@ -1,0 +1,21 @@
+body{
+    background-color: rgba(230, 230, 230, 1);
+}
+nav{
+    background-color: #65D6C3;
+}
+
+nav h1{
+    color: white !important;
+}
+
+.byrd_staff{
+    background-color: #fd5c63;
+    border-color: #fd5c63;
+    border-radius: 999px;
+}
+
+footer{
+    background-color: rgba(38, 38, 38, 1);
+    color: #aaa;
+}
