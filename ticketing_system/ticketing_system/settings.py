@@ -86,17 +86,17 @@ if CUR_DOMAIN == '' or CUR_DOMAIN is None:
     CUR_DOMAIN ='localhost'
 
 DATABASES_LIST = {
-    'ticketing_system': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd2aet9v5jko9fq',
-        'USER': 'bmjjsqmnsgghqj',
-        'PASSWORD': '05789578c84f0042449ec4ed59e3d49fbfeabbf7fdf52adb164db9f8404b8a40',
-        'HOST': 'ec2-54-235-90-107.compute-1.amazonaws.com',
-        'PORT': '5432',
-        'OPTIONS': {
-            'connect_timeout': None,
-        }
-    },
+    # 'ticketing_system': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'd2aet9v5jko9fq',
+    #     'USER': 'bmjjsqmnsgghqj',
+    #     'PASSWORD': '05789578c84f0042449ec4ed59e3d49fbfeabbf7fdf52adb164db9f8404b8a40',
+    #     'HOST': 'ec2-54-235-90-107.compute-1.amazonaws.com',
+    #     'PORT': '5432',
+    #     'OPTIONS': {
+    #         'connect_timeout': None,
+    #     }
+    # },
     'localhost': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ticketingdb',
