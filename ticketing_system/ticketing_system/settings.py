@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -86,33 +85,31 @@ except:
 if CUR_DOMAIN == '' or CUR_DOMAIN is None:
     CUR_DOMAIN ='localhost'
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config()
 
-# DATABASES_LIST = {
-#     # 'ticketing_system': {
-#     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#     #     'NAME': 'd2aet9v5jko9fq',
-#     #     'USER': 'bmjjsqmnsgghqj',
-#     #     'PASSWORD': '05789578c84f0042449ec4ed59e3d49fbfeabbf7fdf52adb164db9f8404b8a40',
-#     #     'HOST': 'ec2-54-235-90-107.compute-1.amazonaws.com',
-#     #     'PORT': '5432',
-#     #     'OPTIONS': {
-#     #         'connect_timeout': None,
-#     #     }
-#     # },
-#     'localhost': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'ticketingdb',
-#         'USER': 'ticketing_admin',
-#         'PASSWORD': 'ts_admin2017',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
+DATABASES_LIST = {
+    'ticketing_system': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd5cbq7kqejs8j5',
+        'USER': 'gvlcevhwivokdy',
+        'PASSWORD': 'b3485ad2b0b97032a38d6cfac0c3928edc2c6e1bdf788450b350820af5427fbc',
+        'HOST': 'ec2-184-73-189-190.compute-1.amazonaws.com',
+        'PORT': '5432',
+        'OPTIONS': {
+            'connect_timeout': None,
+        }
+    },
+    'localhost': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ticketingdb',
+        'USER': 'ticketing_admin',
+        'PASSWORD': 'ts_admin2017',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 
-# }
+}
 
-# DATABASES = {'default': DATABASES_LIST[CUR_DOMAIN]}
+DATABASES = {'default': DATABASES_LIST[CUR_DOMAIN]}
 
 
 # Password validation
