@@ -25,7 +25,7 @@ SECRET_KEY = 'p*0s75ce$lmdd_=%3vr!%m+=19=_7)(&m7yfiqxyc-5k%(%9j#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['byrd-ticketing-system.herokuapp.com']
+ALLOWED_HOSTS = ['byrd-ticketing-system.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
