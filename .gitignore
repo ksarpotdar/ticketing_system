@@ -1,0 +1,3 @@
+*.pyc
+venv/
+venv/lib/python2.7/*
