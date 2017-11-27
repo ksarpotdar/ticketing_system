@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1%}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% load static %}
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">
+          <strong>Success!</strong> {{message}}.
+        </div>
+    {% endfor %}
+{% endif %}
+{% for elem in tickets %}
+    {{elem.name}}
+    <br>
+{% endfor %}
+{% endblock content %}
