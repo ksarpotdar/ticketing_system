@@ -15,16 +15,16 @@ class IndexView(CreateView):
     template_name = 'index.html'
 
     def post(self, request, *args, **kwargs):
-        """
-        Overwrite post function. Creating 1 quotation, with fixed price.
-        """
+        # Receive POST from form in template
         form = TicketForm(request.POST)
+        # If form is valid, save ticket submitted
         if form.is_valid():
             form.save()
             form = TicketForm
             messages.success(request, 'Your ticket was sent!')
             return render(request, self.template_name, {'success': True,
                                                         'form': form})
+        # If form invalid, error message
         else:
             form = TicketForm
             messages.success(request, 'There was an error')
