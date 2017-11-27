@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from django.core.urlresolvers import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,6 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['byrd-ticketing-system.herokuapp.com', '127.0.0.1']
 
+# In case user is not logged in
+LOGIN_URL = reverse_lazy('support_login')
+
+# Auto logout delay in minutes
+AUTO_LOGOUT_DELAY = 120  # equivalent to 5 minutes
 
 # Application definition
 
@@ -38,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'clients',
-    'bootstrap3'
+    'bootstrap3',
+    'support'
 ]
 
 MIDDLEWARE = [
@@ -156,14 +163,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "ticketing_system/static"),
 )
-
-# Mailing configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_PORT = 587
-
-EMAIL_HOST_USER = 'app67069926@heroku.com'
-EMAIL_HOST_PASSWORD = 'fu1vmhoq1022'
-
-DEFAULT_FROM_EMAIL = 'Byrd <noreply@byrd.com>'
