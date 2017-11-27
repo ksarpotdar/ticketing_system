@@ -19,3 +19,8 @@ footer{
     background-color: rgba(38, 38, 38, 1);
     color: #aaa;
 }
+
+.welcome-user{
+    float: right;
+    color: white;
+}
