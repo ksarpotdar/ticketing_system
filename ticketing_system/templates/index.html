@@ -25,6 +25,19 @@
     <div class="col-sm-3">
     </div>
     <div class="col-sm-6 text-center ticket-form-container">
+        {% if messages %}
+            {% for message in messages %}
+                {% if success %}
+                    <div class="alert alert-success">
+                      <strong>Success!</strong> {{message}}.
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger">
+                      <strong>Oops!</strong> {{message}}.
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
         <form name="new.ticket-form" method="POST">
             {% csrf_token %}
             <h3>Submit new ticket</h3>
