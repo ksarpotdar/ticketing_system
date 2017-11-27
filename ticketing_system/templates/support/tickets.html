@@ -10,16 +10,43 @@
 {% bootstrap_messages %}
 {% load static %}
 
+{% block title %}
+  <title>Byrd Ticketing System | Tickets</title>
+{% endblock title %}
+
+{% block css_links %}
+    <link rel="stylesheet" href="{% static 'css/tickets.css' %}">
+{% endblock css_links %}
+
 {% block content %}
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-success">
-          <strong>Success!</strong> {{message}}.
-        </div>
-    {% endfor %}
-{% endif %}
-{% for elem in tickets %}
-    {{elem.name}}
-    <br>
-{% endfor %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10 ticket-form-container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">
+                  <strong>Success!</strong> {{message}}.
+                </div>
+            {% endfor %}
+        {% endif %}
+        <h3>Tickets</h3>
+        <hr>
+        {% for ticket in tickets %}
+        <hr>
+        {{ticket.subject}} {{ticket.urgency}} {{ticket.ticket_type}}
+        <br>
+        {{ticket.name}} {{ticket.email}}
+        <br>
+        {{ticket.message}}
+        <br>
+        {% endfor %}
+    </div>
+    <div class="col-sm-1">
+    </div>
+  </div>
+</div>
 {% endblock content %}
+{% block js_links %}
+{% endblock js_links %}
