@@ -22,14 +22,21 @@
 <!-- MAVBAR -->
 <nav class="navbar navbar-light bg-faded">
   <h1 class="navbar-brand mb-0">byrd tickets</h1>
-  <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle byrd_staff" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    byrd staff?
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="{% url 'support_login' %}">Login</a>
-  </div>
-</div>
+  {% if user.is_authenticated %}
+    <h6 class="welcome-user">Welcome {{user.first_name}} {{user.last_name}}</h6 class="welcome-user">
+    <button class="btn btn-secondary byrd_staff" type="button">
+      Logout
+    </button>
+  {% else %}
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle byrd_staff" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        byrd staff?
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'support_login' %}">Login</a>
+      </div>
+    </div>
+  {% endif %}
 </nav>
 <!-- END NAVBAR -->
 {% block content %}
