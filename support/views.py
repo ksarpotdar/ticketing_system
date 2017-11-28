@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, UpdateView
 from ticketing_system.views_mixins import LoginRequiredMixin
 from support.forms import LoginForm
 from clients.models import TicketModel
@@ -57,3 +57,21 @@ class TicketsView(LoginRequiredMixin, ListView):
     template_name = 'support/tickets.html'
     model = TicketModel
     context_object_name = 'tickets'
+
+
+class EditTicketView(LoginRequiredMixin, UpdateView):
+    template_name = 'support/edit_ticket.html'
+    model = TicketModel
+    context_object_name = 'ticket'
+    fields = '__all__'
+    success_url = '/support/tickets'
+
+    def get_object(self, queryset=None):
+        ticket = TicketModel.objects.get(id=self.kwargs['id'])
+        return ticket
+
+
+def delete_ticket(request, id):
+    ticket = TicketModel.objects.get(id=id)
+    ticket.delete()
+    return HttpResponseRedirect(reverse_lazy('tickets'))

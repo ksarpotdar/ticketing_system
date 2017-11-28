@@ -35,9 +35,36 @@
         <hr>
         {% for ticket in tickets %}
         <hr>
-        {{ticket.subject}} {{ticket.urgency}} {{ticket.ticket_type}}
+        {{ticket.subject}}
+        {% if ticket.urgency == 'Low' %}
+        <span class="urgency-low urgency">
+        {% elif ticket.urgency == 'Mid' %}
+        <span class="urgency-mid urgency">
+        {% else %}
+        <span class="urgency-high urgency">
+        {% endif %}
+        {{ticket.urgency}} Urgency</span>
+        {% if ticket.ticket_type == 'Bug Report' %}
+        <span class="urgency-bug type">
+        {% elif ticket.ticket_type == 'Feature Request' %}
+        <span class="urgency-feature type">
+        {% else %}
+        <span class="urgency-other type">
+        {% endif %}
+        {{ticket.ticket_type}} </span>
+         <span>{{ticket.status}} </span>
+        <div class="dropdown actions-button">
+          <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{% url 'edit_ticket' ticket.pk %}">Edit</a>
+            <a class="dropdown-item" href="#">Add comment</a>
+            <a class="dropdown-item" href="" onclick="delete_ticket(this, {{ticket.pk}});">Delete</a>
+          </div>
+        </div>
         <br>
-        {{ticket.name}} {{ticket.email}}
+        <b>{{ticket.name}}</b> {{ticket.email}}
         <br>
         {{ticket.message}}
         <br>
@@ -49,4 +76,23 @@
 </div>
 {% endblock content %}
 {% block js_links %}
+<script type="text/javascript">
+function delete_ticket(a, id){
+if (confirm('Are you sure you want to delete this ticket ?')) {
+    $.ajax({
+       type: "GET",
+       url: "/support/delete-ticket/" + id + "/",
+       data: '',
+      cache:'false',
+       success: function(data){
+          console.log("Success!");
+          window.location.replace('/support/tickets/');
+       },
+       error: function(){
+        console.log("Error!");
+       }
+  });
+    }
+}
+</script>
 {% endblock js_links %}

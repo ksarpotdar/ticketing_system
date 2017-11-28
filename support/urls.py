@@ -12,4 +12,19 @@ urlpatterns = [
         r'^tickets$',
         TicketsView.as_view(),
         name='tickets'),
+    url(
+        r'^logout/$',
+                logout,
+        {
+            'next_page': '/'
+        },
+        name='logout'),
+    url(
+        r'^edit-ticket/(?P<id>\d+)/$',
+        EditTicketView.as_view(),
+        name='edit_ticket'),
+    url(
+        r'^delete-ticket/(?P<id>\d+)/$',
+        delete_ticket,
+        name='delete_ticket'),
 ]
