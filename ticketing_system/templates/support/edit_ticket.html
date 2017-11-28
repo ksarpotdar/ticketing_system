@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1%}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% load static %}
+
+{% block title %}
+  <title>Byrd Ticketing System | Edit</title>
+{% endblock title %}
+
+{% block css_links %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock css_links %}
+
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6 text-center ticket-form-container">
+        <form name="new.ticket-form" method="POST">
+            {% csrf_token %}
+            <h3>Edit ticket</h3>
+            <br>
+            <div>
+            {% bootstrap_form form layout='inline' %}
+            </div>
+            <button class="btn btn-lg">Edit</button>
+        </form>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div>
+{% endblock content %}
+{% block js_links %}
+{% endblock js_links %}
