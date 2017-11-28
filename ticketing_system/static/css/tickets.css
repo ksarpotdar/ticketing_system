@@ -3,3 +3,38 @@
     padding: 40px;
     margin: 30px;
 }
+
+.actions-button{
+    float: right;
+}
+
+.urgency, .type{
+    border-radius: 100px;
+    padding: 3px;
+    color: white;
+    font-weight: bold;
+}
+
+.urgency-low{
+    background-color: yellow;
+}
+
+.urgency-mid{
+    background-color: orange;
+}
+
+.urgency-high{
+    background-color: red;
+}
+
+.urgency-bug{
+    background-color: purple;
+}
+
+.urgency-feature{
+    background-color: magenta;
+}
+
+.urgency-other{
+    background-color: cyan;
+}
